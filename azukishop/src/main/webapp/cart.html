@@ -1,0 +1,688 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--购物车-->
+
+    <!-- Basic page needs
+    ============================================ -->
+    <title>SuperMarket - Multipurpose Responsive HTML5 Template</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
+    <meta name="description" content="SuperMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
+    <meta name="author" content="Magentech">
+    <meta name="robots" content="index, follow" />
+
+    <!-- Mobile specific metas
+    ============================================ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Favicon
+    ============================================ -->
+    <link rel="shortcut icon" type="image/png" href="ico/favicon-16x16.png"/>
+
+
+    <!-- Libs CSS
+    ============================================ -->
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="css/themecss/lib.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="js/minicolors/miniColors.css" rel="stylesheet">
+
+    <!-- Theme CSS
+    ============================================ -->
+    <link href="css/themecss/so_searchpro.css" rel="stylesheet">
+    <link href="css/themecss/so_megamenu.css" rel="stylesheet">
+    <link href="css/themecss/so-categories.css" rel="stylesheet">
+    <link href="css/themecss/so-listing-tabs.css" rel="stylesheet">
+    <link href="css/themecss/so-category-slider.css" rel="stylesheet">
+    <link href="css/themecss/so-newletter-popup.css" rel="stylesheet">
+
+    <link href="css/footer/footer1.css" rel="stylesheet">
+    <link href="css/header/header1.css" rel="stylesheet">
+    <link id="color_scheme" href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+     <!-- Google web fonts
+    ============================================ -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+         body{font-family:'Poppins', sans-serif;}
+    </style>
+    <script type="text/javascript">
+        onload = function () {
+            $("#header").load("head.html");
+        }
+    </script>
+
+</head>
+
+<body class="res layout-1">
+
+    <div id="wrapper" class="wrapper-fluid banners-effect-5">
+
+
+    <!-- Header Container  -->
+    <header id="header" class=" typeheader-1">
+
+
+    </header>
+    <!-- //Header Container  -->
+
+    <!-- Main Container  -->
+    <div class="main-container container">
+        <ul class="breadcrumb">
+            <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+            <li><a href="cart.html">购物车</a></li>
+        </ul>
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                <h2 class="title" id="ShopCartTitle">购物车</h2>
+                <div class="table-responsive form-group">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr style="height: 45px">
+                            <td class="input-group-btn">
+                                <input type="checkbox" id="checkAll">
+                            </td>
+                            <td class="text-center">图片</td>
+                            <td class="text-left">商品名</td>
+                            <td class="text-left">商品库存</td>
+                            <td class="text-left">商品数量</td>
+                            <td class="text-right">单价</td>
+                            <td class="text-right">总价</td>
+                        </tr>
+                        </thead>
+                        <tbody id="ShopCartList">
+
+                        </tbody>
+                    </table>
+                </div>
+                <h3 class="subtitle no-margin">您希望做什么？</h3>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td class="text-right">
+                                    <strong>已选商品小计:</strong>
+                                </td>
+                                <td class="text-right" id="selectedPrice">$168.71</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <strong>已选商品:</strong>
+                                </td>
+                                <td class="text-right" id="goodsCount">0<strong>&nbsp;件</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <strong>已优惠:</strong>
+                                </td>
+                                <td class="text-right" id="priceOff">￥0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">
+                                    <strong>总计:</strong>
+                                </td>
+                                <td class="text-right" id="totalPrice">￥0.00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="pull-left" title="确定移出购物车吗？" data-toggle="tooltip"><a href="#"
+                                                                                      class="btn btn-danger"
+                                                                                      id="batchDel">移除所选商品</a>
+                    </div>
+                    <div class="pull-right"><a href="#" class="btn btn-success" id="checkout">去支付</a></div>
+                    <div class="pull-right"><a href="index.html" class="btn btn-primary">继续选购</a></div>
+                </div>
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+    <!-- //Main Container -->
+
+
+	<!-- Footer Container -->
+    <footer class="footer-container typefooter-1">
+        <!-- Footer Top Container -->
+
+            <div class="container">
+                <div class="row footer-top">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="socials-w">
+                          <h2>Follow socials</h2>
+                          <ul class="socials">
+                            <li class="facebook"><a href="https://www.facebook.com/MagenTech" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                            <li class="twitter"><a href="https://twitter.com/smartaddons" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+                            <li class="google_plus"><a href="https://plus.google.com/u/0/+Smartaddons/posts" target="_blank"><i class="fa fa-google-plus"></i><span>Google Plus</span></a></li>
+                            <li class="pinterest"><a href="https://www.pinterest.com/smartaddons/" target="_blank"><i class="fa fa-pinterest"></i><span>Pinterest</span></a></li>
+                            <li class="youtube"><a href="#" target="_blank"><i class="fa fa-youtube-play"></i><span>Youtube</span></a></li>
+                            <li class="linkedin"><a href="#" target="_blank"><i class="fa fa-linkedin"></i><span>linkedin</span></a></li>
+                            <li class="skype"><a href="#" target="_blank"><i class="fa fa-skype"></i><span>skype</span></a></li>
+                          </ul>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="module newsletter-footer1">
+                            <div class="newsletter">
+
+                                <div class="title-block">
+                                    <div class="page-heading font-title">
+                                        Signup for Newsletter
+                                    </div>
+
+                                </div>
+
+                                <div class="block_content">
+                                    <form method="post" id="signup" name="signup" class="form-group form-inline signup send-mail">
+                                        <div class="form-group">
+                                            <div class="input-box">
+                                                <input type="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" name="txtemail" size="55">
+                                            </div>
+                                            <div class="subcribe">
+                                                <button class="btn btn-primary btn-default font-title" type="submit" onclick="return subscribe_newsletter();" name="submit">
+                                            Subscribe
+                                        </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                                <!--/.modcontent-->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- /Footer Top Container -->
+
+        <div class="footer-middle ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-infos">
+                        <div class="infos-footer">
+                            <a href="#"><img src="image/catalog/logo-footer.png" alt="image"></a>
+                            <ul class="menu">
+                                <li class="adres">
+                                    San Luis potosí, centro historico, 78000 san luis potosí, SPL, Mexico
+                                </li>
+                                <li class="phone">
+                                    (+0214)0 315 215 - (+0214)0 315 215
+                                </li>
+                                <li class="mail">
+                                    <a href="mailto:contact@opencartworks.com">contact@opencartworks.com</a>
+                                </li>
+                                <li class="time">
+                                    Open time: 8:00AM - 6:00PM
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
+                        <div class="box-information box-footer">
+                            <div class="module clearfix">
+                                <h3 class="modtitle">Information</h3>
+                                <div class="modcontent">
+                                    <ul class="menu">
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Warranty And Services</a></li>
+                                        <li><a href="#">Support 24/7 page</a></li>
+                                        <li><a href="#">Product Registration</a></li>
+                                        <li><a href="#">Product Support</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
+                        <div class="box-account box-footer">
+                            <div class="module clearfix">
+                                <h3 class="modtitle">My Account</h3>
+                                <div class="modcontent">
+                                    <ul class="menu">
+                                        <li><a href="#">Brands</a></li>
+                                        <li><a href="#">Gift Certificates</a></li>
+                                        <li><a href="#">Affiliates</a></li>
+                                        <li><a href="#">Specials</a></li>
+                                        <li><a href="#">FAQs</a></li>
+                                        <li><a href="#">Custom Link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-clear">
+                        <div class="box-service box-footer">
+                          <div class="module clearfix">
+                            <h3 class="modtitle">Categories</h3>
+                            <div class="modcontent">
+                              <ul class="menu">
+                                <li><a href="#">Event & Party Supplies</a></li>
+                                <li><a href="#">Home Improvement</a></li>
+                                <li><a href="#">Lamps & Light Fixtures</a></li>
+                                <li><a href="#">Kitchen & Bath Fixtures</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Kitchen & Dining</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
+                        <div class="box-service box-footer">
+                            <div class="module clearfix">
+                                <h3 class="modtitle">Services</h3>
+                                <div class="modcontent">
+                                    <ul class="menu">
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Site Map</a></li>
+                                        <li><a href="#">Customer Service</a></li>
+                                        <li><a href="#">Custom Link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
+                        <div class="box-service box-footer">
+                          <div class="module clearfix">
+                            <h3 class="modtitle">Categories</h3>
+                            <div class="modcontent">
+                              <ul class="menu">
+                                <li><a href="#">Event & Party Supplies</a></li>
+                                <li><a href="#">Home Improvement</a></li>
+                                <li><a href="#">Lamps & Light Fixtures</a></li>
+                                <li><a href="#">Kitchen & Bath Fixtures</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Kitchen & Dining</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                        <div class="footer-b">
+                            <div class="bottom-cont">
+                                <a href="#"><img src="image/catalog/demo/payment/pay1.jpg" alt="image"></a>
+                                <ul class="footer-links">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Customer Service</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Orders and Returns</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                                <p>**$50 off orders $350+ with the code BOO50. $75 off orders $500+ with the code BOO75. $150 off orders $1000+ with the code BOO150. Valid from October 28, 2016 to October 31, 2016. Offer may not be combined with any other offers or promotions, is non-exchangeable and non-refundable. Offer valid within the US only.</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <!-- Footer Bottom Container -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="col-lg-12 col-xs-12 payment-w">
+                <img src="image/catalog/demo/payment/payment.png" alt="imgpayment">
+                </div>
+            </div>
+            <div class="copyright-w">
+                <div class="container">
+                    <div class="copyright">
+                    SuperMarket © 2018 Demo Store. All Rights Reserved. Designed by <a href="http://www.bootstrapmb.com" target="_blank">OpenCartWorks.Com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Footer Bottom Container -->
+
+
+            <!--Back To Top-->
+        <div class="back-to-top"><i class="fa fa-angle-up"></i></div>
+    </footer>
+    <!-- //end Footer Container -->
+
+    </div>
+
+
+<!-- Include Libs & Plugins
+	============================================ -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/slick-slider/slick.js"></script>
+<script type="text/javascript" src="js/themejs/libs.js"></script>
+<script type="text/javascript" src="js/unveil/jquery.unveil.js"></script>
+<script type="text/javascript" src="js/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+<script type="text/javascript" src="js/datetimepicker/moment.js"></script>
+<script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- 自己肝的代码(╥╯^╰╥)
+    ============================================= -->
+
+<script type="text/javascript">
+    //session中获取用户信息
+    alert(sessionStorage.getItem("a"));
+
+    //初始化购物车
+    function initCart() {
+        //从URL获取用户ID(需要前端传值)
+        // alert(location.search.split("=")[1]);
+
+        //ajax获取购物车
+        $.ajax({
+            type: 'POST',
+            url: 'getShopCarByUserId?userId=' + 1,
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.length == 0) {
+                    $("#ShopCartTitle").html("购物车啥也没有，<a href='category.html'>马上选购~</a>");
+                }
+
+                //重置购物车信息
+                $("#ShopCartList").empty();
+
+                var totalPri = 0;//已选商品总价
+                var totalNum = 0;//已选商品总数
+
+                //重置已选商品价格
+                $("#selectedPrice").html("￥" + (totalPri / 100).toFixed(2));
+                $("#totalPrice").val(totalPri);
+                $("#totalPrice").html("￥" + (totalPri / 100).toFixed(2));
+                //重置已选商品数
+                $("#goodsCount").val(totalNum);
+                $("#goodsCount").html(totalNum + "<strong>&nbsp;件</strong>");
+
+                var cartDetailId;//购物车ID
+                var goodsNum;//商品数量
+                var goodsPrice;//商品单价
+                var totalPrice;//单个商品总价
+                var goodsId;//商品ID
+                var goodsName;//商品名称
+                var check;//商品选中状态
+                var stockNumber;//商品库存
+                var goodsPic;//商品图片路径
+
+                $(response).each(function (index, item) {
+                    //获取的购物车对象属性
+                    cartDetailId = item.cartDetailId;
+                    goodsNum = item.goodsNum;
+                    goodsPrice = item.goodsPrice;
+                    totalPrice = item.totalPrice;
+                    goodsId = item.goodsId;
+                    goodsName = item.goodsName;
+                    check = item.check;
+                    stockNumber = item.stockNumber;
+                    goodsPic = item.gooodsPic;
+
+                    $("#ShopCartList").append("<tr>" +
+                        "<td class='input-group-btn'>" +
+                        "<input type='checkbox' class='checkThis' value=" + cartDetailId + ">" +
+                        "</td>" +
+                        "<td class='text-center'><a href='product.html'><img width='70px'" +
+                        "src='image/catalog/demo/product/fashion/8.jpg'" +
+                        "alt='Aspire Ultrabook Laptop'" +
+                        "title='Aspire Ultrabook Laptop'" +
+                        "class='img-thumbnail'/></a></td>" +
+                        "<td class='text-left'><a href='product.html'>" + goodsName + "</a><br/>" +
+                        "</td>" +
+                        "<td class='text-left'>" + stockNumber + "</td>" +
+                        "<td class='text-left' width='200px'>" +
+                        "<div class='input-group btn-block quantity'>" +
+                        "<input type='text' oninput=\"value=value.replace(/[^\\d]/g,''),checkThis(this," + stockNumber + ")\"" +
+                        "onblur='initCart2($(this).val()," + cartDetailId + "," + goodsPrice + "," + ")' " +
+                        "name='quantity' value='" + goodsNum + "' size='1' class='form-control'/>" +
+                        "<span class='input-group-btn'>" +
+                        "<button type='button' data-toggle=\"tooltip\" title='加入愿望单' class='btn btn-primary' onclick='addToWish(" + goodsId + ")'>" +
+                        "<i class='fa fa-heart'></i></button>" +
+                        "<button type='button' data-toggle=\"tooltip\" title='移出购物车' class='btn btn-danger' onClick='moveOutCart(" + cartDetailId + ")'>" +
+                        "<i class='fa fa-times-circle'></i></button>" +
+                        "</span></div>" +
+                        "</td>" +
+                        "<td class='text-right'>￥" + (goodsPrice / 100).toFixed(2) + "</td>" +
+                        "<td class='text-right totalPrice'>￥" + (totalPrice / 100).toFixed(2) + "</td>" +
+                        "</tr>");
+                });
+
+                /*全选框*/
+                // 统计勾选次数
+                var count = 0;
+                $("#checkAll").click(function () {
+                    //1.判断是否勾选全选按钮
+                    var flag = $(this).prop("checked");
+                    //2.若全选则计数为所有按钮的长度
+                    if (flag) {
+                        count = $(".checkThis").length;
+                    } else {
+                        count = 0;
+                    }
+                    //获取每个勾选框对象并选中
+                    $(".checkThis").each(function () {
+                        $(this).prop("checked", flag);
+                    });
+                    //改变每个商品对象的check属性--只在json中
+                    $(response).each(function (index, item) {
+                        item.check = flag;
+                        if (flag) {
+                            totalPri += item.totalPrice;
+                            totalNum += item.goodsNum;
+                        } else {
+                            totalPri = 0;
+                            totalNum = 0;
+                        }
+                    });
+                    $("#selectedPrice").html("￥" + (totalPri / 100).toFixed(2));
+                    $("#totalPrice").val(totalPri);
+                    $("#totalPrice").html("￥" + (totalPri / 100).toFixed(2));
+                    $("#goodsCount").val(totalNum);
+                    $("#goodsCount").html(totalNum + "<strong>&nbsp;件</strong>");
+                });
+
+                //商品勾选框
+                $(".checkThis").each(function () {
+                    $(this).click(function () {
+                        var flag = $(this).prop("checked");
+                        var value = this.value;
+                        //1.判断每个商品是否为勾选状态
+                        if (flag) {
+                            // 次数+1
+                            count++;
+                            if (count == $(".checkThis").length) {
+                                // 如果计数器等于商品数量则勾选全选按钮
+                                $("#checkAll").prop("checked", true);
+                            }
+                        } else {
+                            count--;
+                            $("#checkAll").prop("checked", false);
+                        }
+                        //改变勾选商品对象的check属性
+                        $(response).each(function (index, item) {
+                            if (value == item.cartDetailId) {
+                                item.check = flag;
+                                if (item.check) {
+                                    totalPri += item.totalPrice;
+                                    totalNum += item.goodsNum;
+                                } else {
+                                    totalPri -= item.totalPrice;
+                                    totalNum -= item.goodsNum;
+                                }
+                            }
+                        });
+                        $("#selectedPrice").html("￥" + (totalPri / 100).toFixed(2));
+                        $("#totalPrice").val(totalPri);
+                        $("#totalPrice").html("￥" + (totalPri / 100).toFixed(2));
+                        $("#goodsCount").val(totalNum);
+                        $("#goodsCount").html(totalNum + "<strong>&nbsp;件</strong>");
+                    });
+                });
+
+                //结算已勾选的商品
+                var list;//勾选商品集合
+                $("#checkout").click(function () {
+                    list = [];
+                    $(response).each(function (index, item) {
+                        if (item.check == true) {
+                            list.push(item);
+                        }
+                    });
+                    // 商品集合转json
+                    var goodsList = JSON.stringify(list);
+                    $.ajax({
+                        type: 'POST',
+                            url: 'checkOut',
+                        contentType: "application/json; charset=utf-8",
+                        data: goodsList,
+                        async: false,
+                        dataType: "text",
+                        success: function (response) {
+                            console.log(response);
+                            console.log("111");
+                            $("#batchDel").click();
+                        },
+                        error: function (response) {
+                            console.log(response)
+                        }
+                    });
+                });
+
+                //批量移出购物车
+                $("#batchDel").click(function () {
+                    // 1.创建存放id的数组
+                    var array = new Array();
+                    // 2.获取选中状态的商品id
+                    $(".checkThis:checked").each(function () {
+                        // 3.把id值存放到数组中
+                        var id = $(this).val();
+                        array.push(id);
+                    });
+                    // 4.创建对象储存数组
+                    var obj = new Object();
+                    obj.idArray = array;
+                    // 5.使用Ajax进行数据交换
+                    $(obj.idArray).each(function (index, data) {
+                        $.ajax({
+                            async: false,
+                            type: 'POST',
+                            url: 'removeOutShopCart?cartDetailId=' + data,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (response) {
+                                initHeadCart();
+                                initCart();
+                            },
+                            error: function (response) {
+                                console.log(response)
+                            }
+                        });
+                    });
+                });
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        });
+    }
+
+    //初始化购物车
+    initCart();
+
+    //修改商品数量
+    function initCart2(goodsNum, cartDetailId, goodsPrice) {
+        // console.log(goodsNum,cartDetailId,goodsPrice)
+        $.ajax({
+            type: 'POST',
+            url: 'updateShopCart',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "cartDetailId": cartDetailId,
+                "goodsNum": goodsNum,
+                "goodsPrice": goodsPrice,
+                "totalPrice": goodsPrice * goodsNum
+            }),
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                initHeadCart();
+                initCart();
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        });
+    }
+
+    //加入收藏夹--通过goodsId
+    function addToWish(data) {
+        $.ajax({
+            async: false,
+            type: 'POST',
+            url: '/user/addwishlist?goodsId=' + data,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                alert("成功加入愿望单：" + response + "商品");
+                initCart();
+                //最后要移出购物车
+                moveOutCart(data);
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        });
+    }
+</script>
+
+<script>
+    //商品数量输入框校验
+    function checkThis(obj, num) {
+        var v = obj.value;
+        if (v == 0 || v == null || v == "") {
+            obj.value = 1;
+        } else if (v > num) {
+            obj.value = num;
+        }
+    }
+</script>
+
+	<!-- Theme files
+	============================================ -->
+
+
+	<script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
+	<script type="text/javascript" src="js/themejs/addtocart.js"></script>
+	<script type="text/javascript" src="js/themejs/application.js"></script>
+
+</body>
+</html>

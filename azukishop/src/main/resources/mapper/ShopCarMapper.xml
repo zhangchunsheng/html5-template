@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    Author: Jason
+    Date: 2019/4/16 11:58
+-->
+<mapper namespace="com.azuki.shopcart.mapper.ShopCartMapper">
+
+    <!--展示用户的购物车信息-->
+    <select id="getShopCarByUserId" parameterType="int" resultType="com.azuki.shopcart.pojo.ShopCart">
+        select * from cartdetail where userId=#{userId} and status=1
+    </select>
+
+    <!--添加购物车之前查询是否为第一次添加购物车-->
+    <select id="checkShopCart" parameterType="com.azuki.shopcart.vo.ShopCartVo" resultType="com.azuki.shopcart.pojo.ShopCart">
+        select * from cartdetail where userId=#{userId} and goodsId=#{goodsId} and status=1
+    </select>
+
+    <!--添加购物车-->
+    <insert id="addToShopCart" parameterType="com.azuki.shopcart.vo.ShopCartVo">
+        insert into cartdetail (userId,goodsId,goodsNum,goodsName,goodsPic,goodsPrice,totalPrice,stockNumber)
+        values (#{userId},#{goodsId},#{goodsNum},#{goodsName},#{goodsPic},#{goodsPrice},#{totalPrice},#{stockNumber})
+    </insert>
+
+    <!--修改购物车内容-->
+    <update id="updateShopCart" parameterType="com.azuki.shopcart.vo.ShopCartVo">
+        update cartdetail set
+        <if test="goodsNum!=null">
+            goodsNum=#{goodsNum},
+        </if>
+        <if test="goodsPrice!=null">
+            goodsPrice=#{goodsPrice},
+        </if>
+        <if test="totalPrice!=null">
+            totalPrice=#{totalPrice}
+        </if>
+        where cartDetailId=#{cartDetailId}
+    </update>
+
+    <!--移出购物车-->
+    <update id="removeOutShopCart" parameterType="int">
+        update cartdetail set status=0 where cartDetailId=#{cartDetailId}
+    </update>
+</mapper>

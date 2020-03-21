@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azuki.goods.mapper.GoodsInfoMapper">
+
+    <resultMap id="GoodsInfoMap" type="com.azuki.goods.pojo.GoodsInfo">
+        <id column="goodsId" property="goodsId" ></id>
+        <result column="goodsNo" property="goodsNo"></result>
+        <result column="price" property="price"></result>
+        <result column="basePrice" property="basePrice"></result>
+        <result column="costPrice" property="costPrice"></result>
+        <result column="stockNumber" property="stockNumber"></result>
+        <result column="sellNumber" property="sellNumber"></result>
+        <result column="goodsDesc" property="goodsDesc"></result>
+        <result column="status" property="status"></result>
+        <result column="firstCategoryId" property="firstCategoryId"></result>
+        <result column="secondCategoryId" property="secondCategoryId"></result>
+        <result column="shopAddress" property="shopAddress"></result>
+        <result column="originAddress" property="originAddress"></result>
+        <result column="remark" property="remark"></result>
+        <result column="carriageTime" property="carriageTime"></result>
+        <result column="modifyAt" property="modifyAt"></result>
+        <result column="modifyBy" property="modifyBy"></result>
+        <result column="createAt" property="createAt"></result>
+        <result column="createBy" property="createBy"></result>
+        <result column="firstCategoryName" property="firstCategoryName"></result>
+        <result column="secondCategoryName" property="secondCategoryName"></result>
+        <result column="brandName" property="brandName"></result>
+        <result column="goodsPic" property="goodsPic"></result>
+        <result column="categoryId" property="categoryId"></result>
+        <result column="brandId" property="brandId"></result>
+        <result column="goodsTitle" property="goodsTitle"></result>
+        <result column="goodsName" property="goodsName"></result>
+        <result column="originAddress" property="originAddress"></result>
+    </resultMap>
+
+
+    <!--获取所有goods-->
+    <select id="getGoodsInfoPageBy"  resultType="com.azuki.goods.dto.GoodsInfoDto">
+        SELECT * from goodsinfo where status = "TOP"
+    </select>
+
+    <!--根据商品id查询商品-->
+    <select id="getGoodsInfoById" parameterType="int" resultType="com.azuki.goods.pojo.GoodsInfo">
+        select * from goodsinfo where status = "TOP"
+    </select>
+
+    <!--根据brandName和goodsName进行模糊查询-->
+    <select id="getGoodsInfoBy" parameterType="com.azuki.goods.pojo.GoodsInfo" resultType="com.azuki.goods.dto.GoodsInfoDto">
+        select * from goodsinfo where status = "TOP"
+        <if test="goodsName !=null and goodsName !=''">
+            and goodsName like concat('%',#{goodsName},'%')
+        </if>
+        <if test="brandName !=null and brandName !=''">
+            and brandName like concat('%',#{brandName},'%')
+        </if>
+    </select>
+
+    <select id="getGoodsInfoByTypeName" parameterType="com.azuki.goods.vo.GoodsInfoVo" resultType="com.azuki.goods.dto.GoodsInfoDto">
+          select * from goodsInfo where categoryId = (select categoryId from goodstype where typeName=#{typeName} and status =1 )
+          and status ="TOP"
+    </select>
+
+
+</mapper>

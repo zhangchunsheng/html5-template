@@ -1,0 +1,98 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azuki.order.mapper.OrderMapper">
+
+    <sql id="orderInfo">
+        orderInfoId,
+        consignee,
+        phone,
+        receiverAdd,
+        status,
+        sendType,
+        payType,
+        payCount
+    </sql>
+
+
+    <select id=" getListById" resultType="com.azuki.order.pojo.Orderinfo">
+        select * from orderinfo where orderId = ${id};
+
+
+    </select>
+    <!-- 获取所有订单信息 -->
+    <select id="getList" resultType="com.azuki.order.pojo.Orderinfo">
+        select * from orderinfo ;
+    </select>
+
+    <!-- 插入订单信息 -->
+    <insert id="saveOrderInfo">
+        insert into orderinfo(
+        orderId,
+        orderInfoId,
+        consignee,
+        phone,
+        receiverAdd,
+        status,
+        sendType,
+        payType,
+        payCount
+        )   values(#{orderId},
+                   #{orderInfoId},
+                   #{consignee},
+                   #{phone},
+                   #{receiverAdd},
+                   #{status},
+                   #{sendType},
+                   #{payType},
+                   #{payCount})
+    </insert>
+
+    <!--查询最大的orderId-->
+    <select id="selectOrderId" resultType="java.lang.Long">
+        select max(orderId) from orderinfo;
+
+    </select>
+
+    <!-- 根据订单Id查询订单信息-->
+    <select id="getOrderInfoById" resultType="com.azuki.order.pojo.Orderinfo">
+            select * from orderinfo where orderId = #{orderId};
+    </select>
+
+    <!--根据订单编号获取订单商品信息-->
+    <select id="getOrderGoodsDetailByOrderId" resultType="com.azuki.order.pojo.Ordergoodsdetail">
+        select ogId,
+               orderId,
+               goodsId,
+               goodsName,
+               goodsPrice,
+               goodsNum,
+               goodsTotalPrice from ordergoodsdetail where orderId = #{orderId};
+    </select>
+
+<!--    &lt;!&ndash;保存订单商品信息&ndash;&gt;-->
+<!--    <insert id="saveOrderGoodsInfo">-->
+<!--         insert into ordergoodsdetail(-->
+<!--               orderId,-->
+<!--               goodsId,-->
+<!--               goodsName,-->
+<!--               goodsPrice,-->
+<!--               goodsNum,-->
+<!--               goodsTotalPrice) value() ;-->
+
+<!--    </insert>-->
+
+    <!--根据用户Id查询订单Id-->
+    <select id="getUserIdByOrderId" resultType="java.lang.String">
+        select userId from order_user where orderId = #{orderId};
+    </select>
+
+    <!--根据用户Id查询所有的订单Id-->
+    <select id="getOrderListByUserId" resultType="java.lang.Long">
+        select orderId from order_user where userId=#{userId}
+    </select>
+    <!--保存用户订单数据-->
+    <insert id="saveOrderUser">
+        insert into order_user (orderId,userId) value(#{orderId},#{userId});
+
+    </insert>
+</mapper>
