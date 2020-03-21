@@ -1,0 +1,151 @@
+.footer {
+    $main-color: #ff5722;
+    $main-text-color: #222222;
+    .newsletter {
+        padding: 35px 0;
+        clear: both;
+        .newsletter-text  h5.newsletter-inner{
+            background-color: #ffffff;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #222222;
+            padding: 15px 0;
+            .newsletter-inner-right {
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }    
+        .newsletter-right {
+            .subscription-form {
+                float: left;
+                .inputForm {
+                    position: relative;
+                }
+                font-size: 12px;
+
+                .subscription-input-field {
+                    border: 1px solid #ebeaea;
+                    min-width: 280px;
+                    padding: 15px 0 15px 15px;
+                    border-right: none;
+                    border-radius: 28px 0 0 28px;
+                }                  
+                .subscription-input-field:focus {
+                    outline: none;
+                }
+                .subscription-btn {
+                    position: absolute;
+                    padding: 15px 20px 15px 10px; 
+                    color: white;
+                    background-color: $main-color;
+                    border: 1px solid $main-color;
+                    border-radius: 0 28px 28px 0;
+                }
+                .subscription-btn:focus {
+                    outline: none;
+                }
+            }
+            .social-media {
+                float: right;
+                font-size: 14px;
+                ul.list-social-media {
+                    padding: 15px 0;
+
+                    .social-media-item {
+                        padding-left: 14px;
+                    }
+                    .social-media-item > a:hover {
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+    }
+    .horizon-line {
+        background-color: $main-color;
+        height: 3px;
+    }
+
+    @media (min-width: 1200px) {
+        .col-xl-custom {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+    .group-link {
+        background: #f1f1f1;
+        h6.group-link-title {
+            color: $main-text-color;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 20px 0 10px 0;
+        }
+        .group-link-hl {
+            height: 1px;
+            background-color: #c1c1c1;
+        }
+        .group-link-item > a {
+            font-size: 14px;
+            color: #555555;
+        }
+        .group-link-item > a:hover {
+            color: $main-color;
+        }
+        .groupLink {
+            list-style-type: disc;
+            padding: 10px 15px 0 15px;
+        }
+        li.group-link-item {
+            display: list-item;
+            padding-bottom: 5px;
+        }
+    }
+
+    .footer-mid {
+        text-align: center;
+        color: #555555;
+        .logo-footer {
+            img.logo {
+                padding-bottom: 15px;
+            }
+            padding: 35px 0 0 0;
+        }
+        .information-contact > span {
+            padding: 0 8px;
+
+            > i {
+                padding-right: 8px;
+                color: $main-color;
+            }
+        }
+        .download-group {
+            padding: 20px 0 30px 0;
+            > a {
+                padding:0 4px 0 4px;
+            }
+        }
+        
+    }
+
+    .footer-bottom {
+        position: relative;
+        background-color: $main-text-color;
+        padding: 20px 0;
+        .copy-rights {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            font-size: 12px;
+
+            .special-text {
+                color: $main-color;
+            }
+        }
+    }
+}

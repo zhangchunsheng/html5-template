@@ -1,0 +1,70 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/04/2019 07:13
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-shopping-bag:before { content: "\f100"; }
+.flaticon-login-square-arrow-button-outline:before { content: "\f101"; }
+.flaticon-cupcake:before { content: "\f102"; }
+.flaticon-ice-cream-truck:before { content: "\f103"; }
+.flaticon-sundae-with-cherry-on-top:before { content: "\f104"; }
+.flaticon-left-arrow:before { content: "\f105"; }
+.flaticon-right-arrow:before { content: "\f106"; }
+.flaticon-scoop:before { content: "\f107"; }
+.flaticon-ice-cream:before { content: "\f108"; }
+.flaticon-ice-cream-1:before { content: "\f109"; }
+.flaticon-ice-cream-2:before { content: "\f10a"; }
+.flaticon-phone-contact:before { content: "\f10b"; }
+.flaticon-menu:before { content: "\f10c"; }
+.flaticon-list:before { content: "\f10d"; }
+.flaticon-search:before { content: "\f10e"; }
+    
+    $font-Flaticon-shopping-bag: "\f100";
+    $font-Flaticon-login-square-arrow-button-outline: "\f101";
+    $font-Flaticon-cupcake: "\f102";
+    $font-Flaticon-ice-cream-truck: "\f103";
+    $font-Flaticon-sundae-with-cherry-on-top: "\f104";
+    $font-Flaticon-left-arrow: "\f105";
+    $font-Flaticon-right-arrow: "\f106";
+    $font-Flaticon-scoop: "\f107";
+    $font-Flaticon-ice-cream: "\f108";
+    $font-Flaticon-ice-cream-1: "\f109";
+    $font-Flaticon-ice-cream-2: "\f10a";
+    $font-Flaticon-phone-contact: "\f10b";
+    $font-Flaticon-menu: "\f10c";
+    $font-Flaticon-list: "\f10d";
+    $font-Flaticon-search: "\f10e";
