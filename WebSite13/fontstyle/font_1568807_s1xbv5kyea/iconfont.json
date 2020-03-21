@@ -1,0 +1,65 @@
+{
+  "id": "1568807",
+  "name": "省钱快报",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "252560",
+      "name": "查找分类",
+      "font_class": "chazhaofenlei",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "826698",
+      "name": "列表",
+      "font_class": "listing",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1546590",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "4415715",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "6540838",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "6805647",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "7318324",
+      "name": "购物车",
+      "font_class": "SHOUYE-GOUWUCHE",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "9586195",
+      "name": "收 藏-产品详情",
+      "font_class": "shoucang",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

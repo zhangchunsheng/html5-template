@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <link rel="stylesheet" href="CSS/swiper-3.4.2.min.css">
+    <script type="text/javascript" src="./JavaScript/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+    <script type="text/javascript" src="./JavaScript/clipboard-polyfill.js"></script>
+</head>
+<style type="text/css">
+
+
+</style>
+<body>
+<div id="loading_page">
+    <img src="./IMG/searchbar/logo.png" alt="">
+    <div>好券正在加载...不要走开哦～</div>
+    <span>首次加载资源需要较长时间，属于正常现象，下次进入就很快了哦！</span>
+</div>
+
+<div id="main">
+
+    <div class="page" id="page_0" :class="{hidden: !tabs[0]}">
+        <div class="searchbar">
+            <img src="IMG/searchbar/logo.png" class="searchbar_button">
+            <div class="searchbar_middle">
+                <img src="IMG/searchbar/search_black.png" class="searchbar_middle_img">
+                <input class="searchbar_middle_input" type="text" placeholder="请输入关键词搜索">
+                <button class="searchbar_middle_button">搜索</button>
+            </div>
+        </div>
+
+        <div class="placeholder_low"></div>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img class="swiper_img" src="./IMG/swiper/img1.png" onclick="showActivityCode()">
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div id="page_home_content">
+            <div class="top_classes block">
+
+                <div class="top_class" :class="{top_class_selected: classTabs[0]}" @click="switchToClassTab(0)">新券速抢
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[1]}" @click="switchToClassTab(1)">9.9包邮
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[2]}" @click="switchToClassTab(2)">19.9特价
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[3]}" @click="switchToClassTab(3)">人气商品
+                </div>
+
+            </div>
+
+            <div class="newcoupon_tab" :class="{hidden: !classTabs[0]}">
+                <div class="classes block">
+                    <div class="class">
+                        <img src="./IMG/class/1-1.png" alt="">
+                        <div>女装</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-2.png" alt="">
+                        <div>男装</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-3.png" alt="">
+                        <div>内衣</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-4.png" alt="">
+                        <div>化妆护肤</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-5.png" alt="">
+                        <div>配饰</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-6.png" alt="">
+                        <div>鞋品</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-7.png" alt="">
+                        <div>箱包</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-8.png" alt="">
+                        <div>食品</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-9.png" alt="">
+                        <div>母婴</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-10.png" alt="">
+                        <div>居家</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-11.png" alt="">
+                        <div>运动</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-12.png" alt="">
+                        <div>数码</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-13.png" alt="">
+                        <div>家电</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-14.png" alt="">
+                        <div>其他</div>
+                    </div>
+                </div>
+
+                <div class="goodcoupon block">
+                    <div class="blocktitle">
+                        <img class="blocktitle_img" src="./IMG/blocktitle/hot.png">
+                        <span>好券精选</span>
+                    </div>
+
+                    <div class="couponswiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                                    <div class="swiper_couponprice_div">¥ 20</div>
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                                    <div class="swiper_couponprice_div">¥ 20</div>
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                                    <div class="swiper_couponprice_div">¥ 20</div>
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="newcoupon block">
+                    <div class="blocktitle">
+                        <img class="blocktitle_img" src="./IMG/blocktitle/new.png">
+                        <span>好券直播·每日10点上新</span>
+                    </div>
+                    <div class="coupons">
+                        <div class="coupon" onclick="window.location.href = './goodsdetails.html'">
+                            <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                            <div class="coupon_middle">
+                                <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                <div class="coupon_down">
+                                    <del class="originalprice">¥ 888</del>
+                                    <span class="coupon_salenumber">销量:1688</span>
+                                    <br>
+                                    <span class="couponprice">券后价:¥800</span>
+
+                                </div>
+                            </div>
+                            <div class="coupon_right_img">
+                                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                                <div class="offprice">88</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loading">正在加载中</div>
+                <div class="placeholder"></div>
+            </div>
+
+
+        </div>
+
+        <div class="ninepointnine_tab block" :class="{hidden: !classTabs[1]}">
+            <div class="coupons">
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+
+                        </div>
+                    </div>
+                    <div class="coupon_right_img">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+
+                        </div>
+                    </div>
+                    <div class="coupon_right_img">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="nineteenpointnine_tab block" :class="{hidden: !classTabs[2]}">
+            <div class="coupons">
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+
+                        </div>
+                    </div>
+                    <div class="coupon_right_img">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="hotsale block" :class="{hidden: !classTabs[3]}">
+            <div class="coupons">
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+
+                        </div>
+                    </div>
+                    <div class="coupon_right_img">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="get_top" onclick="window.location.href='#'"><img src="IMG/bottombar/get_top.png" class="get_top_img"></div>
+    </div>
+
+    <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
+        <img class="searchbackground" src="./IMG/search/search_background.jpeg">
+        <div class="searchbar_div">
+            <div class="searchbar_outer">
+                <img src="./IMG/searchbar/search_white.png" class="searchbar_middle_img">
+                <input type="text" class="searchbar_middle_input"
+                       style="background-color: rgba(0, 0, 0, 0); color: #fff; flex-grow: 1; -webkit-flex-grow: 1;">
+                <button class="search_button"
+                        onclick="">搜索
+                </button>
+            </div>
+        </div>
+        <span class="search_alert"
+              onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
+        <div class="couponswiper-container1" style="position: relative; bottom: 4rem;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                        <div class="swiper_couponprice_div">¥ 20</div>
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                        <div class="swiper_couponprice_div">¥ 20</div>
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <img src="IMG/coupon/coupon_hotsale.png" class="swiper_couponprice_bg">
+                        <div class="swiper_couponprice_div">¥ 20</div>
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block" style="background: none;position: relative; bottom: 4rem; border-bottom: 0; padding: 2.5%;">
+            <span>&nbsp热门标签</span><br>
+            <div class="searchrecommend">男装男装</div>
+            <div class="searchrecommend">男装</div>
+            <div class="searchrecommend">男装男装男装</div>
+            <div class="searchrecommend">男装</div>
+            <div class="searchrecommend">男装男装男装男装</div>
+            <div class="searchrecommend">男装男装</div>
+            <div class="searchrecommend">男装</div>
+        </div>
+    </div>
+
+    <div class="page" id="page_2" :class="{hidden: !tabs[2]}">
+        <div class="userinfo">
+            <span style="height: 2.5rem; line-height: 2.5rem;">个人中心</span>
+            <div class="icon_div">
+                <img :src="personalInfo.icon" class="usericon">
+            </div>
+            <div class="username">{{personalInfo.username}}</div>
+            <div class="userid">(id: {{personalInfo.userid}})</div>
+            <div class="usermenu">
+                <div class="usermenu_option" v-if="!personalInfo.isSigned" @click="sign()">
+                    <div><img class="usermenu_img" src="./IMG/user/sign.png"></div>
+                    <span>点击签到</span>
+                </div>
+                <div class="usermenu_option" v-if="personalInfo.isSigned">
+                    <div><img class="usermenu_img" src="./IMG/user/sign.png"></div>
+                    <span>已签到 {{personalInfo.signDate}} 次</span>
+                </div>
+                <div class="usermenu_option">
+                    <div><img class="usermenu_img" src="./IMG/user/score.png"></div>
+
+                    <span>我的积分: {{personalInfo.score}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 0.5rem">
+            <div class="tableline" onclick="window.location.href = 'uploadOrder.html'">
+                <img class="tableline_img" src="./IMG/user/upload.png">
+                <span>提交订单号</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+            <div class="tableline">
+                <img class="tableline_img" src="./IMG/user/myfans.png">
+                <span>我的粉丝</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+            <div class="tableline">
+                <img class="tableline_img" src="./IMG/user/scoreshop.png">
+                <span>积分商城 (开发中)</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+        </div>
+
+        <div v-if="personalInfo.isPartner" class="partner" onclick="window.location.href = 'partner.html'">
+            合伙人收益 >
+        </div>
+    </div>
+
+    <div class="bottombar">
+
+        <div class="bottombar_tab" :class="{bottombar_tab_selected: tabs[0]}" @click="switchToTab(0)">
+            <img v-if="!tabs[0]" class="bottombar_tab_img" src="./IMG/bottombar/home.png">
+            <img v-if="tabs[0]" class="bottombar_tab_img" src="./IMG/bottombar/home_selected.png">
+            <div>首页</div>
+        </div>
+        <div class="bottombar_tab" :class="{bottombar_tab_selected: tabs[1]}" @click="switchToTab(1)">
+            <img v-if="!tabs[1]" class="bottombar_tab_img" src="./IMG/bottombar/search.png">
+            <img v-if="tabs[1]" class="bottombar_tab_img" src="./IMG/bottombar/search_selected.png">
+            <div>自助查券</div>
+        </div>
+        <div class="bottombar_tab" :class="{bottombar_tab_selected: tabs[2]}" @click="switchToTab(2)">
+            <img v-if="!tabs[2]" class="bottombar_tab_img" src="./IMG/bottombar/user.png">
+            <img v-if="tabs[2]" class="bottombar_tab_img" src="./IMG/bottombar/user_selected.png">
+            <div>个人中心</div>
+        </div>
+
+    </div>
+
+    <div class="activitycode_bg" hidden>
+        <img src="" class="activitycode_themepic">
+        <div class="activitycode_main">
+            <img src="./IMG/searchbar/close.png" alt="关闭" class="activitycode_close" onclick="hideActivityCode()">
+            <div class="activitycode_close" style="float: left"></div>
+            <div class="activitycode_title"></div>
+            <span>长按复制框内淘口令，打开手淘APP</span>
+            <br>
+            <span id="activity_content"></span>
+            <br>
+            <span id="activitycode_div" class="command_div"></span>
+            <span>或者</span>
+            <div class="orange_button" onclick="oneKeyCopy()">一键复制</div>
+            <span>若在淘宝客户端中没有相应提示请手动复制上面的淘口令。</span>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+
+<script type="text/javascript">
+
+    var loadingPage = document.getElementById("loading_page");
+    var timeout = setTimeout(function () {
+        loadingPage.hidden = true;
+        clearTimeout(timeout);
+    }, 10000);
+
+    window.onload = function () {
+        loadingPage.hidden = true;
+        /*隐藏等待界面*/
+    };
+
+    var winWidth;
+    if (window.innerWidth)
+        winWidth = window.innerWidth;
+    else if ((document.body) && (document.body.clientWidth))
+        winWidth = document.body.clientWidth;
+
+    /*var swiper0 = document.getElementsByClassName("couponswiper-container")[0];
+    var swiper1 = document.getElementsByClassName("couponswiper-container1")[0];
+    var body = document.getElementsByTagName("body")[0];*/
+    var page0 = document.getElementById("page_0");
+    var page1 = document.getElementById("page_1");
+
+
+    var status = document.getElementsByTagName("status");
+    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
+
+    var main = new Vue({
+        el: "#main",
+        data: {
+            tabs: [
+                true,
+                true,
+                true
+            ],
+            classTabs: [
+                true,
+                false,
+                false,
+                false
+            ],
+            personalInfo: {
+                icon: "./IMG/demopic/icon.jpg",
+                username: "JackFung",
+                userid: "13316302055",
+                isSigned: false,
+                signDate: 10,
+                score: "9876",
+                isPartner: true/*是否为合伙人*/
+            }
+        },
+        methods: {
+            switchToTab: function (id) {
+                sessionStorage.setItem("lastTimeStatus", id);
+                for (var i = 0; i < this.tabs.length; i++) {
+                    this.tabs.splice(i, 1, i == id);
+                }
+                if (id == 0) {
+                    var timeout = setTimeout(function () {
+                        topSwiper.startAutoplay();
+                        goodCouponSwiper.startAutoplay();
+                        goodCouponSwiper1.stopAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+
+                } else if (id == 1) {
+                    var timeout = setTimeout(function () {
+                        topSwiper.stopAutoplay();
+                        goodCouponSwiper.stopAutoplay();
+                        goodCouponSwiper1.startAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+                } else {
+                    var timeout = setTimeout(function () {
+                        topSwiper.stopAutoplay();
+                        goodCouponSwiper.stopAutoplay();
+                        goodCouponSwiper1.stopAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+                }
+            },
+            switchToClassTab: function (id) {
+                for (var i = 0; i < this.classTabs.length; i++) {
+                    this.classTabs.splice(i, 1, i == id);
+                }
+            },
+            sign: function () {
+                /*在这里向服务器请求签到*/
+
+                if (1) {
+                    alert("签到成功！");
+                    this.personalInfo.isSigned = true;
+                    this.personalInfo.signDate += 1;
+                } else if (0) {
+                    alert("签到失败！");
+                }
+
+            }
+        }
+    });
+
+    var swiper = document.getElementsByClassName("swiper-container")[0];
+    swiper.style.height = window.screen.width * 1 / 3 + "px";
+
+
+    for (var i = 0; i < swiperboxImg.length; i++) {
+        swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
+    }
+
+    var topSwiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: 5000,
+        pagination: '.swiper-pagination',
+        autoplayDisableOnInteraction: false
+    });
+
+    var goodCouponSwiper = new Swiper('.couponswiper-container', {
+        loop: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false
+    });
+
+    var goodCouponSwiper1 = new Swiper('.couponswiper-container1', {
+        loop: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false
+    });
+
+    page0.style.width = winWidth + "px";
+    page1.style.width = winWidth + "px";
+
+    var lastTimeStatus = sessionStorage.getItem("lastTimeStatus");
+    if (lastTimeStatus) {
+        main.tabs = [
+            0 == lastTimeStatus,
+            1 == lastTimeStatus,
+            2 == lastTimeStatus
+        ]
+    } else {
+        main.tabs = [
+            true, false, false
+        ]
+    }
+
+    var activityCodeBlock = document.getElementsByClassName("activitycode_bg")[0];
+    var activityThemePic = document.getElementsByClassName("activitycode_themepic")[0];
+    var activityTitle = document.getElementsByClassName("activitycode_title")[0];
+    var activityCode = document.getElementById("activitycode_div");
+    var activityCodeContent = document.getElementById("activity_content");
+
+
+    function showActivityCode() {
+        activityThemePic.src = "./IMG/swiper/img1.png";
+        /*顶部图片地址*/
+        activityTitle.innerHTML = "双十一红包疯抢";
+        activityCode.innerHTML = "复制整行￥fSyo0TJil2T￥";
+        activityCodeContent.innerHTML = "双十一活动现在开始啦";
+        activityCodeBlock.hidden = false;
+    }
+
+    function hideActivityCode() {
+        activityCodeBlock.hidden = true;
+    }
+
+    function oneKeyCopy() {
+        var timeout;
+        var activityCodeDiv = document.getElementById("activitycode_div");
+        var button = document.getElementsByClassName("orange_button")[0];
+        if (button.innerHTML == "一键复制") {
+            clipboard.writeText(activityCodeDiv.innerHTML);
+            button.innerHTML = "已复制";
+            button.style.backgroundColor = "#f9b838";
+            timeout = setTimeout(function () {
+                button.innerHTML = "一键复制";
+                button.style.backgroundColor = "";
+                clearTimeout(timeout);
+            }, 3000);
+        } else if (button.innerHTML == "已复制") {
+            clearTimeout(timeout);
+            button.innerHTML = "一键复制";
+            button.style.backgroundColor = "";
+        }
+    }
+
+
+</script>
+
+<script type="text/javascript">
+
+
+</script>
+
+
+</html>

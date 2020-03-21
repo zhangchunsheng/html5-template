@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+    <style type="text/css">
+        .selector_main {
+            width: 100%;
+            position: fixed;
+            top: 2.5rem;
+        }
+
+        .selector {
+            height: 3rem;
+            width: 100%;
+            display: flex;
+            display: -webkit-flex;
+            border-bottom: 1px lightgray solid;
+            background-color: #fff;
+        }
+
+        .selector_option {
+            width: 1rem;
+            flex-grow: 1;
+            -webkit-flex-grow: 1;
+            line-height: 2.9rem;
+            text-align: center;
+            border-bottom: 0.1rem #fbfbfb solid;
+        }
+
+        .selector_option1 {
+            width: 1rem;
+            -webkit-flex-grow: 1;
+            line-height: 2.4rem;
+            text-align: center;
+            border-bottom: 0.1rem #f9f9f9 solid;
+        }
+
+        .selector_selected {
+            border-bottom-color: #f38200;
+            color: #f38200;
+        }
+
+        #loadingpic {
+            width:10rem;
+        }
+
+        .orderdetails_line {
+            display: flex;
+            display: -webkit-flex;
+        }
+
+        .orderdetails_line img {
+            height: 3.5rem;
+            margin: 0.25rem;
+        }
+
+        .orderdetails_line_div {
+            color: dimgray;
+            line-height: 2rem;
+            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .block_in2 {
+            width: 1rem;
+            flex-grow: 1;
+            -webkit-flex-grow: 1;
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+        .order_title {
+            font-size: 0.8rem;
+            color: dimgray;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .order_content {
+            font-size: 0.8rem;
+            color: black;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .title_black {
+            color: #000;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="navigationbar">
+        <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+        <div class="navigationbar_middle">
+            订单明细
+        </div>
+        <div class="navigationbar_button"></div>
+    </div>
+    <div class="selector_main">
+        <div class="selector">
+            <div class="selector_option" :class="{selector_selected: selectorTop==0}" @click="changeTop(0)">我的订单</div>
+            <div class="selector_option" :class="{selector_selected: selectorTop==1}" @click="changeTop(1)">贡献订单</div>
+        </div>
+        <div class="selector" style="height: 2.5rem;background-color:#f9f9f9;">
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==0}" @click="changeMiddle(0)">所有订单</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==1}" @click="changeMiddle(1)">已付款</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==2}" @click="changeMiddle(2)">已结算</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==3}" @click="changeMiddle(3)">已失效</div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="placeholder" style="height: 8rem;"></div>
+        <!--<img id="loadingpic" src="./IMG/gif/loading.gif" alt="">-->
+
+        <div class="block orderdetails" v-for="item in orderList">
+            <div class="orderdetails_line">
+                <img :src="item.img">
+                <div>
+                    <div class="orderdetails_line_div order_content">{{item.title}}</div>
+                    <div class="orderdetails_line_div">订单号: {{item.orderNumber}}</div>
+                </div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2">
+                    <div class="order_title">订单金额</div>
+                    <div class="order_content">¥ {{item.orderPrice}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">成交预估收入</div>
+                    <div class="order_content">¥ {{item.anticipateIncome}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">收入来源</div>
+                    <div class="order_content">{{item.orderSource}}</div>
+                </div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2">
+                    <div class="order_title">结算金额</div>
+                    <div class="order_content">¥ {{item.settlePrice}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">结算预估收入</div>
+                    <div class="order_content">¥ {{item.settleIncome}}</div>
+                </div>
+                <div class="block_in2"></div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2 order_title">{{item.createDate}} 创建</div>
+                <div class="block_in2 order_title">{{item.payDate}} 付款</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+</div>
+
+</body>
+<script type="text/javascript">
+
+    var loadingPic = document.getElementById("loadingpic");
+
+    var main = new Vue({
+        el: "#main",
+        data: {
+            selectorTop: 0, /* 0 -> 我的订单, 1 -> 贡献订单 */
+            selectorMiddle: 0, /* 0 -> 所有订单, 1 -> 已付款, 2 -> 已结算, 3 -> 已失效 */
+            orderList: [
+                {
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
+                }
+            ]
+        },
+        methods: {
+            changeTop: function (id) {
+                this.selectorTop = id;
+                /*用this.selectorTop和this.selectorMiddle请求数据*/
+            },
+            changeMiddle: function (id) {
+                this.selectorMiddle = id;
+                /*用this.selectorTop和this.selectorMiddle请求数据*/
+            }
+        }
+    });
+
+
+</script>
+</html>
